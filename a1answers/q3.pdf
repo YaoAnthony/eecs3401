@@ -1,0 +1,60 @@
+Hypothesis that Arthur is murderer let's denote that as A. Likewise, Berthram being the murderer will be B and Charleton will be C.
+
+We know one is the murderer and the other two are not! We can state this as:
+A|B|C , ~(A&B) , ~(A&C) , ~(B&C)
+
+Clausal Form yields:
+A|B|C , ~A|~B , ~A|~C , ~B|~C
+
+Sentence testimonies expressed by the suspects can be false if they are the murderer, so we shall write this possibility as X|sentence where X is a suspect.
+
+Arthur says Bertham was victim's friend:
+A|BFriend
+
+Arthur says that Carleton hated the victim:
+A|CHate
+
+Bertham says that he was out of town:
+B|~BTown
+
+Someone out of town cannot have been the murderer so we can express this as:
+~BTown -> ~B 
+Clausal:
+BTown|~B
+
+Bertham says he "didn't even know the guy":
+B|~BFriend
+
+Carleton says that he saw Arthur and Bertham with the victim just before the murder (meaning they had to be in town):
+C|ATown
+C|BTown
+
+If Carleton was lying than Arthur was out of town:
+~ATown -> ~A
+Clausal:
+ATown|~A
+
+Compiled together we have:
+A|B|C		(1)
+~A|~B		(2)
+~A|~C		(3)
+~B|~C		(4)
+A|BFriend	(5)
+A|CHate		(6)
+B|~BTown	(7)
+BP|~B		(8)
+B|~BFriend	(9)
+C|ATown		(10)
+C|BTown		(11)
+AP|~A		(12)
+
+Forward Resolutions:
+A|B		(13 = 5+9)
+B|C		(14 = 7+11)
+A|~C		(15 = 13+4)
+~C		(16 = 15+3)
+C|~A		(17 = 14+2)
+~A		(18 = 17+3)
+B		(19 = 13+18)
+
+So we can conclude that Bertham is the murderer!

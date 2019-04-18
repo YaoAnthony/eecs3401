@@ -1,0 +1,33 @@
+(a)
+A -> C -> E
+|    |
+v    v
+B -> D
+
+Pr(a)  Pr(b|a)  Pr(c|a)  Pr(d|b,c)  Pr(e|c)
+Pr(a,b,c,d,e) = Pr(a)Pr(b|a)Pr(c|a)Pr(d|b,c)Pr(e|c)
+
+(b)
+A -> B -> D
+
+Pr(a,b,d) = Pr(a)Pr(b|a)Pr(d|b)
+Therefore;
+  Pr(d|a,b) = Pr(a,b,d)/Pr(a,b) = Pr(a)Pr(b|a)Pr(d|b)/Pr(a)Pr(b|a) = Pr(d|b)
+  
+a is independent of d given b
+
+(c)
+patient suffers e but not d
+
+Pr(a,b,c,~d,e) = Pr(a)Pr(b|a)Pr(c|a)Pr(~d|b,c)Pr(e|c) = 0.512%
+Pr(a,b,~c,~d,e) = Pr(a)Pr(b|a)Pr(~c|a)Pr(~d|b,~c)Pr(e|~c) = 1.536%
+Pr(a,~b,c,~d,e) = Pr(a)Pr(~b|a)Pr(c|a)Pr(~d|~b,c)Pr(e|c) = 0.128%
+Pr(a,~b,~c,~d,e) = Pr(a)Pr(~b|a)Pr(~c|a)Pr(~d|~b,~c)Pr(e|~c) = 1.824%
+Pr(~a,b,c,~d,e) = Pr(~a)Pr(b|~a)Pr(c|~a)Pr(~d|b,c)Pr(e|c) = 0.128%
+Pr(~a,b,~c,~d,e) = Pr(~a)Pr(b|~a)Pr(~c|~a)Pr(~d|b,~c)Pr(e|~c) = 1.824%
+Pr(~a,~b,c,~d,e) = Pr(~a)Pr(~b|~a)Pr(c|~a)Pr(~d|~b,c)Pr(e|c) = 0.512%
+Pr(~a,~b,~c,~d,e) = Pr(~a)Pr(~b|~a)Pr(~c|~a)Pr(~d|~b,~c)Pr(e|~c) = 34.656%
+
+(d)
+We are less inclined to believe they have cancer. Of all the probabilities, that were testing the probability of having cancer, none of them exceeded the priori probability for having metastatic cancer.
+Highest: 1.824% < Priori: 2% ;  So less inclined.

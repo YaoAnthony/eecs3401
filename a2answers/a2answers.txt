@@ -1,0 +1,172 @@
+%% ----------------------------------------------------------
+
+%% EECS 3401 Fall 2018 Assignment 2 
+
+%% Family name: Stefanovich
+
+%% Given name: Vladimir
+
+%% Student number: 214962740
+
+
+
+%%    Answers to Questions 6-10
+
+%% Instructions: 
+
+%% Please edit this file in the following way to answer the text
+%% questions of Assignment 1. 
+
+%% - Please replace any occurence of '[yes/no]' with either 'yes' or
+%% 'no' to answer the respective question.
+
+%% - Replace any occurence of '[explain N words]' or '[if yes (resp.
+%%   no), explain N words]' with an explanation containing no more
+%%   than N words if the condition (yes/no) applies to your previous
+%%   answer.
+
+%% - Do not remove any other lines, in particular do not remove the
+%%   task-tags (<tasknumber>)
+
+%% - Any line starting with a '%' will be ignored.
+
+%% - Submit this file electronically.
+
+%% ----------------------------------------------------------
+
+
+
+%% 6. Which of the four heuristics are admissible?
+
+%%  - hfn_null
+<6.1>
+no
+
+%%  - hfn_misplaced
+<6.2>
+yes
+
+%%  - hfn_manhattan
+<6.3>
+yes
+
+%%  - hfn_inversions
+<6.4>
+yes
+
+
+
+
+%% /* ------------------------------------------------------ */
+
+% 7. Suppose for sliding a tile to the left we would change the
+% cost from 1 to 0.5 and leave all the other moves the same cost.
+% Does this affect the admissibility of the heuristics? Which of
+% them are admissible now?
+
+
+%%  - hfn_null
+<7.1.1>
+no
+
+<7.1.2>
+Does no rely much on moving the pieces, but instead tries to find a favourable position which it does not want to forfeit.
+
+
+%%  - hfn_misplaced
+<7.2.1>
+yes
+
+<7.2.2>
+[if no explain in 100 words or less]
+
+
+%%  - hfn_manhattan
+<7.3.1>
+yes
+
+<7.3.2>
+[if no explain in 100 words or less]
+
+
+%%  - hfn_inversions
+<7.4.1>
+yes
+
+<7.4.2>
+[if no explain in 100 words or less]
+
+
+
+%% /* ------------------------------------------------------ */
+
+% 8. Now suppose we would change the cost for sliding a tile to the
+% left to 2 and leave all the other moves the same cost. Does this
+% now affect the admissibility of the four heuristics? Again, which
+% of them are admissible?
+
+%%  - hfn_null
+<8.1.1>
+yes
+
+<8.1.2>
+
+[if no explain in 100 words or less]
+
+%%  - hfn_misplaced
+<8.2.1>
+no
+
+<8.2.2>
+Already explores a lot of nodes and takes longer. With this added cost and a general lack of spatial awareness to the goal state means it can explore to the left many times before it finds the goal state.
+
+
+%%  - hfn_manhattan
+<8.3.1>
+no
+
+<8.3.2>
+While faster than misplaced; the higher N is, the slower this heurestic functions runs. Paired with a doubled cost for one of the successors means it runs roughly a quater as fast on higher N.
+
+
+%%  - hfn_inversions
+<8.4.1>
+yes
+
+<8.4.2>
+[if no explain in 100 words or less]
+
+
+
+%% /* ------------------------------------------------------ */
+
+% 9. In the former modification (sliding to the LEFT costs 0.5), can
+% you say for sure which heuristic will be the fastest (expand the
+% least number of states) in finding a (not necessary optimal)
+% solution? Explain.
+<9.1>
+yes
+
+<9.2>
+Manhattan distance hfn. It is already faster than misplaced. Since sliding to the left has been halfed, Manhattan hfn is roughly a quarter faster since exploring the states that require sliding into the blank.
+
+%% /* ------------------------------------------------------ */
+
+% 10. One can obtain another heuristic for the N-puzzle by relaxing the
+% problem as follows: let's say that a tile can move from square A to
+% square B if B is blank.  The exact solution to this problem defines
+% Gaschnig's heuristic. Explain why Gaschnig's heuristic is at
+% least as accurate as hfn_misplaced.  Show some cases where it
+% is more accurate than both the hfn_misplaced} and 
+% hfn_manhattan} heuristics.  Can you suggest a way to calculate
+% Gaschnig's heuristic efficiently?
+
+<10.1>
+Misplaced knows which tiles are out of the goal and will explore until it finds progression toward the goal. Gaschnig's heuristic also is aware of which tiles are out of the goal state.However, Gaschnig' allows him to swap out tiles anywhere on the board.
+
+<10.2>
+It is possible depending on the arrangment to finish the puzzle by exactly moving each piece once. 
+296134758 as the initial state will only require 8 iterations to reach goal state.
+If we permute two adjacent tiles in the goal state, we have a state where misplaced-tiles and Manhattan both return 2, but Gaschnig’s heuristic returns 3.
+<10.3>
+To compute Gaschnig’s heuristic, repeat the following until the goal state is reached: let B be the current location of the blank; if B is occupied by tile X (not the blank) in the goal state, move X to B; otherwise, move any misplaced tile to B.
