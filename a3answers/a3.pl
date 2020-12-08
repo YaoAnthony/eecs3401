@@ -37,7 +37,7 @@ primitive_action(TurnOff(switch,b)).	% turn light switch off; must be on box
 
 % Preconditions for Primitive Actions
 
-poss(Go(x,y,r),S) :- In(x,r), In(y,r), RobotLoc(x,S).
+poss(Go(x,y,r),S) :- In(x,r), In(y,r), RobotLoc(x,S). %The first letter of function in prolog should not be a capital letter...
 poss(Push(b,x,y,r),S) :- IsBox(b), In(x,r), In(y,r), BoxLoc(b,x,S).
 poss(ClimbUp(x,b),S) :-  IsBox(b).
 poss(ClimbDown(x,b),S) :- IsBox(b), OnTop(b,S).
